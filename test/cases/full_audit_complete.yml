@@ -1,0 +1,20 @@
+---
+name: Complete Full USAUDIT
+
+externalData:
+- resources
+
+data:
+-
+  resourceType: Patient
+  name: Joe Smith
+  gender: male
+  birthDate: 1978-07-16
+- 
+  $import: *UsAuditQuestionnaire
+- 
+  $iterate: *UsAuditQuestionnaireResponsesFullAuditComplete
+
+results:
+  DisplayUsAuditQuestions4to8: true
+  DisplayScoreFullUsAudit: true

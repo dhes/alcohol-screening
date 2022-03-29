@@ -1,0 +1,46 @@
+---
+name: Has Recent USAUDIT-C Score
+
+externalData:
+- resources
+
+data:
+-
+  resourceType: Patient
+  name: Jane Smith
+  gender: female
+  extension:
+  - url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
+    valueCode: 'F'
+  birthDate: 1978-07-16
+- 
+  $import: *UsAuditQuestionnaire
+- 
+  resourceType: QuestionnaireResponse
+  questionnaire: 'http://www.cdc.gov/ncbddd/fasd/usaudit'
+  status: 'completed'
+  authored: 2020-01-20
+  item:
+  - linkId: 'prescreen-question'
+    answer:
+    - valueCoding: http://www.cdc.gov/ncbddd/fasd#yes Yes
+  - linkId: 'usaudit-question-one'
+    answer:
+      valueCoding: http://www.cdc.gov/ncbddd/fasd#monthly Monthly
+  - linkId: 'usaudit-question-two'
+    answer:
+      valueCoding: http://www.cdc.gov/ncbddd/fasd#3drinks 3 drinks
+  - linkId: 'usaudit-question-three'
+    answer:
+      valueCoding: http://www.cdc.gov/ncbddd/fasd#monthly Monthly
+  - linkId: 'usauditc-score'
+    answer:
+      valueDecimal: 6
+
+results:
+  IsIncluded: true
+  HasRecentScoreUsAuditC: true
+  HasRecentScoreFullUsAudit: false
+  HasRecentScoreAuditC: false
+  HasRecentScoreFullAudit: false
+  HasRecentYesApsResponse: true

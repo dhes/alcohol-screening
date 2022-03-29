@@ -1,0 +1,52 @@
+---
+name: Previously answered USAUDIT Question One twice before with two nevers
+
+externalData:
+- resources
+
+data:
+-
+  resourceType: Patient
+  name: Jane Smith
+  gender: female
+  extension:
+  - url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
+    valueCode: 'F'
+  birthDate: 1978-07-16
+- 
+  $import: *UsAuditQuestionnaire
+- 
+  resourceType: QuestionnaireResponse
+  questionnaire: 'http://www.cdc.gov/ncbddd/fasd/usaudit'
+  status: 'completed'
+  authored: 2020-01-20
+  item:
+  - linkId: 'prescreen-question'
+    answer:
+    - valueCoding: http://www.cdc.gov/ncbddd/fasd#yes Yes
+  - linkId: 'usaudit-question-one'
+    answer:
+      valueCoding: http://www.cdc.gov/ncbddd/fasd#never Never
+- 
+  resourceType: QuestionnaireResponse
+  questionnaire: 'http://www.cdc.gov/ncbddd/fasd/usaudit'
+  status: 'completed'
+  authored: 2019-12-20
+  item:
+  - linkId: 'prescreen-question'
+    answer:
+    - valueCoding: http://www.cdc.gov/ncbddd/fasd#yes Yes
+  - linkId: 'usaudit-question-one'
+    answer:
+      valueCoding: http://www.cdc.gov/ncbddd/fasd#never Never
+
+
+results:
+  IsIncluded: true
+  HasRecentScoreUsAuditC: false
+  HasRecentScoreFullUsAudit: false
+  HasRecentScoreAuditC: false
+  HasRecentScoreFullAudit: false
+  HasRecentYesApsResponse: true
+  HasRecentNeverResponseUsauditQuestionOne: true
+  HasEvidenceOfRecentAlcoholScreening: true

@@ -1,0 +1,43 @@
+---
+name: Male Under 65 Below AUDIT-C Threshold
+
+externalData:
+- resources
+
+data:
+-
+  resourceType: Patient
+  name: Joe Smith
+  gender: male
+  extension:
+  - url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
+    valueCode: 'M'
+  birthDate: 1978-07-16
+- 
+  $import: *UsAuditQuestionnaire
+- 
+  resourceType: QuestionnaireResponse
+  questionnaire: 'http://www.cdc.gov/ncbddd/fasd/usaudit'
+  status: 'in-progress'
+  authored: 2020-03-09
+  item:
+  - linkId: 'prescreen-question'
+    answer:
+    - valueCoding: http://www.cdc.gov/ncbddd/fasd#yes Yes
+  - linkId: 'usaudit-question-one'
+    answer:
+      valueCoding: http://www.cdc.gov/ncbddd/fasd#monthly Monthly
+  - linkId: 'usaudit-question-two'
+    answer:
+      valueCoding: http://www.cdc.gov/ncbddd/fasd#4drinks 4 drinks
+  - linkId: 'usaudit-question-three'
+    answer:
+      valueCoding: http://www.cdc.gov/ncbddd/fasd#monthly Monthly
+
+results:
+  UsAuditQuestion3Text: 'How often do you have 5 or more drinks on one occasion?'
+  ThresholdUsAuditC: 8
+  ScoreUsAuditC: 7
+  DisplayUsAuditQuestions4to8: false
+  DisplayScoreFullUsAudit: false
+  ScoreFullUsAudit: 7

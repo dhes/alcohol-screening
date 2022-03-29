@@ -1,0 +1,22 @@
+---
+name: Female at Birth
+
+externalData:
+- resources
+
+data:
+-
+  resourceType: Patient
+  name: Jane Smith
+  gender: female
+  extension:
+  - url: http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
+    valueCode: 'F'
+  birthDate: 1948-07-16
+- 
+  $import: *UsAuditQuestionnaire
+
+results:
+  MaleAtBirth: false
+  FemaleAtBirth: true
+  SexAtBirthUnknown: false
