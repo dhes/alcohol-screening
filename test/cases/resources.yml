@@ -1,4 +1,4 @@
-resusable_resources:
+reusable_resources:
 - &UsAuditQuestionnaireResponsesStopAtAuditC
   - resourceType: QuestionnaireResponse
     questionnaire: 'http://www.cdc.gov/ncbddd/fasd/usaudit'
